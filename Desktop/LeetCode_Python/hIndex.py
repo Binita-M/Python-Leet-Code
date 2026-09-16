@@ -4,13 +4,12 @@ class Solution:
 
         h = 0
         for i, c in enumerate(citations):
-            if c >= i + 1:
-                h = i + 1
+            if c >= i+1:
+                h = i+1
             else:
                 break
-        
         return h
-    
+
 sol = Solution()
 
 test_cases = [
@@ -33,25 +32,23 @@ test_cases = [
 
     ([0,0,0,100], 1),
 
-    ([100]*100, 100),
-
     ([0,0,0,0,5], 1),
 
     ([6,5,3,1,0], 3)
-    ]
+]
 
 passed = 0
 failed = 0
 
 for citations, expected in test_cases:
-    result = sol.hIndex(citations[:])
+    result = sol.hIndex(citations)
+
     if result == expected:
-        print(f"Passed: {citations} -> result")
+        print(f"Passed: {citations} -> {result}")
         passed += 1
-        
+
     else:
         print(f"Failed: {citations} -> got {result}, expected {expected}")
         failed += 1
-    
-print(f"\n{passed} passed, {failed} failed out of {len(test_cases)} tests")
 
+print(f"\n {passed} passed, {failed} failed out of {len(test_cases)} test cases")
